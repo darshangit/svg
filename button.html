@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+            --dark-color: #635bff;
+            --light-color: #80e9ff;
+        }
+
+        svg{
+            cursor: pointer;
+        }
+
+        #dark {
+            fill: var(--dark-color)
+        }
+
+        #light1 {
+            fill: var(--light-color)
+        }
+
+        #dark1,
+        #light1,
+        #dark2 {
+            transition: all 1s ease;
+        }
+
+        #dark2{
+            transform: translateX(-100%);
+        }
+
+        svg:hover #light1{
+            transform: translateX(20%);
+        }
+
+        svg:hover #dark1{
+            transform: translateX(40%);
+            opacity: 0;
+        }
+
+        svg:hover #dark2{
+            transform: translateX(0%);
+        }
+
+    </style>
+</head>
+<body>
+    <svg id="triangles" width="128" height="108" viewBox="0 0 128 108" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g id="Frame 1" clip-path="url(#clip0)" filter="url(#filter0_d)">
+        <rect width="120" height="100" transform="translate(4)" fill="white"/>
+        <path id="light1" opacity="0.7" d="M37.8744 47.5167C39.8575 48.7004 39.8155 51.5868 37.799 52.7123L11.3317 67.4851C9.31516 68.6106 6.83639 67.1311 6.86991 64.822L7.30997 34.5143C7.3435 32.2051 9.86419 30.7982 11.8472 31.9818L37.8744 47.5167Z"/>
+        <g id="dark">
+        <path id="dark1" opacity="0.7" d="M37.8744 47.5167C39.8575 48.7004 39.8155 51.5868 37.799 52.7123L11.3317 67.4851C9.31518 68.6106 6.8364 67.1311 6.86993 64.822L7.30998 34.5143C7.34351 32.2051 9.8642 30.7982 11.8472 31.9818L37.8744 47.5167Z"/>
+        <g id="dark2" opacity="0.7" filter="url(#filter1_d)">
+        <path d="M52.0014 47.7704C53.3347 48.5402 53.3346 50.4647 52.0012 51.2345L22.7503 68.1204C21.4169 68.8901 19.7503 67.9277 19.7504 66.3881L19.7522 32.6131C19.7523 31.0735 21.419 30.1114 22.7523 30.8813L52.0014 47.7704Z"/>
+        </g>
+        </g>
+        </g>
+        <defs>
+        <filter id="filter0_d" x="0" y="0" width="128" height="108" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dy="4"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+        </filter>
+        <filter id="filter1_d" x="15.7502" y="30.6102" width="41.2521" height="45.7828" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+        <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+        <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0"/>
+        <feOffset dy="4"/>
+        <feGaussianBlur stdDeviation="2"/>
+        <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+        <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+        <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+        </filter>
+        <clipPath id="clip0">
+        <rect width="120" height="100" fill="white" transform="translate(4)"/>
+        </clipPath>
+        </defs>
+        </svg>
+
+        <script>
+            const svg = document.getElementById('triangles');
+            svg.onclick = (e) => {
+                const colors = ['red', 'blue', 'green', 'orange', 'pink', 'purple'];
+                const rando = () => colors[Math.floor(Math.random() * colors.length)];
+                document.documentElement.style.cssText = `
+                --dark-color: ${rando()};
+                --light-color: ${rando()};
+                `
+            }
+        </script>
+        
+</body>
+</html>
